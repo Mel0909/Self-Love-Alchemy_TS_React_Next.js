@@ -1,21 +1,17 @@
 "use client";
-
-import Header from "./(frontend)/components/Header";
+import Header from "./(frontend)/components/header/Header";
+import Hero from "./(frontend)/components/banner/Hero";
+import SearchBox from "./(frontend)/components/search/SearchBox";
 
 export default function Home() {
-  const abrirCarrinho = () => console.log("Caldeirão aberto!");
-  const abrirLogin = () => console.log("Sintonizando magia...");
-
   return (
     <main>
-      <Header onOpenCart={abrirCarrinho} onOpenLogin={abrirLogin} />
-      
-      <div style={{ padding: "40px", textAlign: "center", color: "#4A235A" }}>
-        <h2 style={{ fontFamily: "serif", fontSize: "2rem" }}>
-          Bem-vinda ao Coven, Mel! ✨
-        </h2>
-        <p>O Header acima já está sintonizado com o MagicContext.</p>
-      </div>
+      <Header 
+        onOpenCart={() => console.log("Abrir Carrinho")} 
+        onOpenLogin={() => console.log("Abrir Login")} 
+      />
+      <Hero />
+      <SearchBox />
     </main>
   );
 }

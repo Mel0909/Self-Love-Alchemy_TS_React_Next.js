@@ -1,7 +1,6 @@
 "use client";
 import { createContext, useContext, useState, ReactNode } from "react";
 
-// Tipos básicos para não dar erro
 interface MagicContextType {
   usuario: { nome: string } | null;
   carrinho: any[];
@@ -10,7 +9,7 @@ interface MagicContextType {
 const MagicContext = createContext<MagicContextType | undefined>(undefined);
 
 export function MagicProvider({ children }: { children: ReactNode }) {
-  const [usuario] = useState({ nome: "Mel" }); // User fictício para teste
+  const [usuario] = useState({ nome: "Mel" });
   const [carrinho] = useState([]);
 
   return (

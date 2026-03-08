@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useMagic } from "../contexts/MagicContext";
+import { useMagic } from "../../contexts/MagicContext";
 import styles from "./Header.module.css";
 
 export default function Header({ onOpenCart, onOpenLogin }: any) {
