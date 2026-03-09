@@ -1,9 +1,9 @@
 "use client";
-import { useMagic } from "../../contexts/MagicContext";
+import { useCart } from "../../contexts/CartContext";
 import styles from "./CartItem.module.css";
 
 export default function CartItem({ item }: any) {
-  const { removerDoCarrinho, atualizarQuantidade } = useMagic();
+  const { removerDoCarrinho, atualizarQuantidade } = useCart();
 
   return (
     <div className={styles.cartItem}>

@@ -1,10 +1,12 @@
 "use client";
 import { useState } from "react";
-import { useMagic } from "../../contexts/MagicContext";
+import { useAuth } from "../../contexts/AuthContext";
+import { useCart } from "../../contexts/CartContext";
 import styles from "./Header.module.css";
 
 export default function Header({ onOpenCart, onOpenLogin }: any) {
-  const { usuario, carrinho } = useMagic();
+  const { usuario } = useAuth();
+  const { carrinho } = useCart();
   const numCarrinho = carrinho?.length || 0;
   
   const [menuAberto, setMenuAberto] = useState(false);

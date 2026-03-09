@@ -1,9 +1,9 @@
 "use client";
-import { useMagic } from "../../contexts/MagicContext";
+import { useCart } from "../../contexts/CartContext";
 import styles from "./ProductZoom.module.css";
 
 export default function ProductZoom({ produto, onClose }: any) {
-  const { adicionarAoCarrinho } = useMagic();
+  const { adicionarAoCarrinho } = useCart();
 
   return (
     <div className={styles.modalOverlay} onClick={onClose}>

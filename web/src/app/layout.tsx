@@ -1,5 +1,6 @@
-import { ToastProvider } from "./(frontend)/contexts/ToastContext"; 
-import { MagicProvider } from "./(frontend)/contexts/MagicContext";
+import { ToastProvider } from "./(frontend)/contexts/ToastContext";
+import { AuthProvider } from "./(frontend)/contexts/AuthContext";
+import { CartProvider } from "./(frontend)/contexts/CartContext";
 import "./globals.css";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -7,9 +8,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR">
       <body>
         <ToastProvider>
-          <MagicProvider>
-            {children}
-          </MagicProvider>
+          <AuthProvider>
+            <CartProvider>
+              {children}
+            </CartProvider>
+          </AuthProvider>
         </ToastProvider>
       </body>
     </html>

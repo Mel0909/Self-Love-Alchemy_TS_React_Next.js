@@ -1,11 +1,11 @@
 "use client";
-import { useMagic } from "../../contexts/MagicContext";
+import { useCart } from "../../contexts/CartContext";
 import { useToast } from "../../contexts/ToastContext";
 import CartItem from "./CartItem";
 import styles from "./CartDrawer.module.css";
 
 export default function CartDrawer({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
-  const { carrinho, limparCarrinho } = useMagic();
+  const { carrinho, limparCarrinho } = useCart();
   const { addToast } = useToast();
 
   const total = carrinho.reduce((acc: number, item: any) => {

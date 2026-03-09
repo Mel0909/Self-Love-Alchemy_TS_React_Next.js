@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useMagic } from "../../contexts/MagicContext";
+import { useAuth } from "../../contexts/AuthContext";
 import { useToast } from "../../contexts/ToastContext";
 import styles from "./LoginModal.module.css";
 
@@ -10,7 +10,7 @@ export default function LoginModal({ onClose }: { onClose: () => void }) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
-  const { usuario, cadastrar, entrar, deslogar } = useMagic();
+  const { usuario, cadastrar, entrar, deslogar } = useAuth();
   const { addToast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {

@@ -1,9 +1,9 @@
 "use client";
-import { useMagic } from "../../contexts/MagicContext";
+import { useCart } from "../../contexts/CartContext";
 import styles from "./ProductCard.module.css";
 
 export default function ProductCard({ produto, onOpenZoom }: any) {
-  const { adicionarAoCarrinho } = useMagic();
+  const { adicionarAoCarrinho } = useCart();
 
   return (
     <article className={styles.productCard}>
