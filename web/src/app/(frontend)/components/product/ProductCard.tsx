@@ -22,10 +22,13 @@ export default function ProductCard({ produto, onOpenZoom }: any) {
           </button>
           <button 
             className={styles.addToCartBtn} 
-            onClick={() => adicionarAoCarrinho(produto)}
-          >
+            onClick={(e) => {
+                e.stopPropagation();
+                adicionarAoCarrinho(produto);
+            }}
+        >
             Adicionar ao Caldeirão
-          </button>
+        </button>
         </div>
       </div>
     </article>
