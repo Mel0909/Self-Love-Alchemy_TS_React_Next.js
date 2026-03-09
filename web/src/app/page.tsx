@@ -4,6 +4,7 @@ import Header from "./(frontend)/components/header/Header";
 import Hero from "./(frontend)/components/banner/Hero";
 import SearchBox from "./(frontend)/components/search/SearchBox";
 import ProductList from "./(frontend)/components/product/ProductList";
+import Footer from "./(frontend)/components/footer/Footer";
 
 export default function Home() {
   const [termoBusca, setTermoBusca] = useState("");
@@ -38,6 +39,7 @@ export default function Home() {
         min={precoMin}
         max={precoMax}
       />
+      <Footer />
     </main>
   );
 }
