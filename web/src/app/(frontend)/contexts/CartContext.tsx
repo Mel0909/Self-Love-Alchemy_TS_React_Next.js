@@ -11,7 +11,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const { usuario } = useAuth();
   const { addToast } = useToast();
 
-  // Carrega o carrinho quando o usuário loga
   useEffect(() => {
     if (usuario) {
       const dados = MagicAPI.getDadosUsuario(usuario.email);
@@ -44,7 +43,21 @@ export function CartProvider({ children }: { children: ReactNode }) {
   };
 
   const atualizarQuantidade = (id: number, mudanca: number) => {
-    atualizarEGuardar(carrinho.map(i => i.id === id ? { ...i, quantidade: Math.max(1, i.quantidade + mudanca) } : i));
+    setCarrinho((prev) => {
+      const novoCarrinho = prev.map((item) => {
+        if (item.id === id) {
+          const novaQtd = Math.max(1, item.quantidade + mudanca);
+          return { ...item, quantidade: novaQtd };
+        }
+        return item;
+      });
+      
+      if (usuario) {
+        MagicAPI.salvarCarrinhoNoUsuario(usuario.email, novoCarrinho);
+      }
+      
+      return novoCarrinho;
+    });
   };
 
   return (
